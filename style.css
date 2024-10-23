@@ -1,0 +1,852 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.dark-mode {
+    position: relative;
+    background-color: #000000;
+    color: white;
+}
+
+.toggle-container {
+    position: fixed;
+    top: 95px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Style for the dark mode icon */
+#dark-mode-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #f1f500;
+    transition: color 0.3s ease;
+}
+
+.dark-mode #dark-mode-toggle {
+    color: #f1c40f;
+}
+
+/* Responsive media queries */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+        align-items: center;
+    }
+
+    #dark-mode-toggle {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    #dark-mode-toggle {
+        font-size: 22px;
+    }
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 3000px;
+    max-height: 1000px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: url("bg40.gif");
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1000px) {
+    .prev-btn, .next-btn {
+        padding: 5px 10px;
+    }
+
+    .carousel-image {
+        border-radius: 0;
+    }
+}
+
+.carousel-image .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white;
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add shadow to make the text more visible */
+}
+
+header {
+    background-color: #06af00;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #06af00;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-content div {
+    margin: 10px;
+}
+
+footer a {
+    color: #fdfffd;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons img {
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+footer .social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.top-navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 24px;
+    display: flex;
+    text-align: start;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.modern-btn {
+    background-color: #3dbb03;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+
+}
+
+.modern-btn:hover {
+    background-color: #1d5a0052;
+}
+
+.advice-item {
+    border-radius: 21px;
+    background-color: #e6e5e5;
+}
+
+h2 {
+    color: rgb(0, 137, 201);
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #5a5907;
+    color: rgb(0, 0, 0);
+    overflow-y: auto;
+    transition: left 0.3s;
+    cursor: pointer;
+    background-image: url("sidebarbg.jpg!sw800");
+}
+
+#sidebarClose {
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: right;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 15px 20px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#sidebar ul li:hover {
+    background-color: #7bff00;
+}
+
+#main-content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.tracker-content {
+    display: none;
+}
+
+.tracker-content.active {
+    display: block;
+}
+
+.routine-progress, .health-metrics {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.routine-item, .tracker-item {
+    background-color: #f0f4c3;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    flex: 1 1 calc(45% - 20px);
+    margin: 10px;
+    text-align: center;
+}
+
+.routine-item h3, .tracker-item h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.error-message {
+    color: red;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close-button {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#stressLevelTracker {
+    text-align: center;
+}
+
+#stressLevelChart {
+    margin-top: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+.task-item {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 2px;
+    width: 2;
+    margin: 0 auto 10px;
+}
+
+.progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s;
+}
+
+.progress-bar-container2 {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 2px;
+    width: 2;
+    margin: 0 auto 10px;
+}
+
+.progress-bar2 {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s;
+}
+
+.progress-bar-container3 {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 2px;
+    width: 2;
+    margin: 0 auto 10px;
+}
+
+.progress-bar3 {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s;
+}
+
+.progress-bar-container4 {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 2px;
+    width: 2;
+    margin: 0 auto 10px;
+}
+
+.progress-bar4 {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s;
+}
+
+
+.completionbutton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.completionbutton:hover {
+    background-color: #45a049;
+}
+
+.medal {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.medal2 {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.medal3 {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.medal4 {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+img {
+   height: 40px;
+   width: 40px;
+   margin-right: 20px;
+}
+
+/* Style the popup button */
+.popup-btn {
+    padding: 10px 20px;
+    background-color: #74f178;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.popup-btn:hover {
+    background-color: #45a049;
+}
+
+/* The Popup Modal (hidden by default) */
+.popup-modal {
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sits above all other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Popup Modal Content Box */
+.popup-content {
+    width: 400px; /* Set a wider width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed; /* Fixed positioning for popup */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Adjust for exact center */
+    z-index: 1000; /* Bring it in front of other elements */
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    position: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.close-popup-btn {
+    margin-top: 15px;
+    background-color: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close-popup-btn:hover {
+    text-decoration: underline;
+}
+
+/* Style the popup button */
+.popup-btn2 {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 40px;
+ 
+}
+
+.popup-btn2:hover {
+    background-color: #45a049;
+}
+
+/* The Popup Modal (hidden by default) */
+.popup2-modal {
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sits above all other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Popup Modal Content Box */
+.popup2-content {
+    background-color: white;
+    margin: 2% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Adjust width based on your design */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Close Button inside the popup */
+.close2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close2:hover,
+.close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Close button for the popup */
+.close-popup-btn2 {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-popup-btn2:hover {
+    background-color: #e64a19;
+}
+
+/* Style the popup button */
+.popup-btn3 {
+    padding: 1px 2px;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-left: 1150px;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.popup-btn3:hover {
+    background-color: #45a049;
+    
+
+}
+
+/* The Popup Modal (hidden by default) */
+.reward {
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sits above all other content */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Popup Modal Content Box */
+.popup3-content {
+    background-color: rgb(0, 0, 0);
+    margin: -1% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Adjust width based on your design */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    scrollbar-width: 5px;
+    scrollbar-color: red;
+    scroll-behavior: smooth;
+
+    
+}
+
+/* Close Button inside the popup */
+.close3 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close3:hover,
+.close3:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Close button for the popup */
+.close-popup-btn3 {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-popup-btn3:hover {
+    background-color: #e64a19;
+}
+
+
+
+
+p {
+    color: #ffffff;
+    margin-left: 10px;
+    padding-bottom: 15px;
+}
+
+/*form*/
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+.login-btn {
+    width: 200px;
+    padding: 10px;
+    background-color: #06af00;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #05a500;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*register*/
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tracker-content.active { 
+    border-radius: 24px;
+    background-color: #333; /* Light mode background color */
+    color: #ff0000c2; /* Light mode text color */
+}
+
+.dark-mode .tracker-content.active {
+    background-color: #333; /* Dark mode background color /
+    color: #fff; /* Dark mode text color */
+}
+
+.advice-item {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.carousel-image {
+    transition: margin-left 0.3s;
+    padding: 10px 10px;
+    border-radius: 50px;
+}
+
+h3 {
+    color: white;
+}
+
+
+
+.Chat {
+    text-transform: uppercase;
+    background-color: white;
+    background-color: fixed;
+    height: 500px;
+
+}
+
+:placeholder-shown {
+    margin-top: 20px;
+}
+
+.customerbtn {
+   width: 80px;
+   height: 40px;
+}
+#runningTrackerChart {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.tracker-content.active {
+    display: block;
+}
+
+.tracker-content {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+footer {
+    transition: margin-left 0.3s;
+}
+
+
+

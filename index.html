@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routina</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Streamlinericon.jpg" type="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <header>
+        <nav class="top-navbar">
+            <div id="sidebarToggle" class="sidebar-menu-icon">&#9776;</div>
+            <img src="Streamlinericon.jpg" class="logo" style="border-radius: 30px;"><h1 class="title">Routina</h1>
+            <div class="nav-buttons">
+                            
+                <img id="openPopupBtn3" class="popup-btn3" src="trophy-star.png">
+
+                <div id="popup3Modal" class="reward">
+                    <div class="popup3-content">
+                        <span id="closePopupBtn3" class="close3">&times;</span>
+                        <h2>Task Reward</h2>
+                        <section id="taskList">
+                            <div class="task-item">
+                                <h2>Task 1: Drink 8 Glasses of Water</h2>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="waterProgress"></div>
+                                </div>
+                                <button class="completionbutton" id="completeWaterTaskBtn">Complete Step</button>
+                                <img id="waterMedal" class="medal" src="medal.png" alt="Medal" style="display: none;">
+
+                                <h2>Task 2: Eat 10 grams of Protein</h2>
+                                <div class="progress-bar-container2">
+                                    <div class="progress-bar2" id="proteinProgress"></div>
+                                </div>
+                                <button class="completionbutton" id="completeProteinTaskBtn">Complete Step</button>
+                                <img id="proteinMedal" class="medal2" src="third-medal.png" alt="Medal2" style="display: none;">
+                                <h2>Task 3: Maintain 7-9 hours of sleep each night for a week.</h2>
+                                <div class="progress-bar-container3">
+                                    <div class="progress-bar3" id="sleepProgress"></div>
+                                </div>
+                                <button class="completionbutton" id="completeSleepTaskBtn">Complete Step</button>
+                                <img id="sleepMedal" class="medal3" src="second-medal.png" alt="Medal3" style="display: none;">
+                                <h2>Task 4: Log your daily health routine (diet, exercise, sleep) for 2 weeks.</h2>
+                                <div class="progress-bar-container4">
+                                    <div class="progress-bar4" id="healthProgress"></div>
+                                </div>
+                                <button class="completionbutton" id="completeHealthTaskBtn">Complete Step</button>
+                                <img id="healthMedal" class="medal4" src="first-medal.png" alt="Medal4" style="display: none;">
+
+                            </div>
+                        <button class="close-popup-btn3" id="popupCloseBtn3">Close</button>
+                    </div>
+                </div>
+
+
+
+                <button id="openPopupBtn" class="popup-btn">Login</button>
+                
+                <div id="popupModal" class="popup-modal">
+                    <div class="popup-content">
+                        <span id="closePopupBtn" class="close">�</span>
+                        <h2>Login</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" required placeholder="username/email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" required placeholder="password">
+                            </div>
+                            <button type="submit" class="login-btn">Login</button>
+                            <p id="loginMessage" class="error-message"></p>
+                        </form>
+                        <button class="close-popup-btn" id="popupCloseBtn">Close</button>
+                    </div>
+                    
+                </div>
+
+                <button id="openPopupBtn2" class="popup-btn2">Register</button>
+
+                <div id="popup2Modal" class="popup2-modal">
+                    <div class="popup2-content">
+                        <span id="closePopupBtn2" class="close">�</span>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Your Name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="Your Email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Re-enter Password:</label>
+            <input type="password" id="confirmPassword" required placeholder="Re-enter Password">
+        </div>
+        <button type="submit" class="register-btn">Register</button>
+        <p id="registerMessage" class="error-message"></p>
+    </form>
+    <button class="close-popup-btn" id="popupCloseBtn2">Close</button>
+</div>
+                </div>
+
+                <button id="accountSettingsBtn" class="modern-btn" style="display: none;">Account</button>
+            </div>
+        </nav>
+    </header>
+
+
+    <main id="main-content">
+        <aside id="sidebar">
+            <div id="sidebarClose" class="close-icon">&times;</div>
+            <ul>
+                <li id="AboutUsLink">About us</li>
+                <li id="healthAdviceLink">Health Advice</li>
+                <li id="routineTrackerLink">Routine Tracker</li>
+                <li id="healthTrackerLink">Health Tracker</li>
+                <li id="heartRateMonitorLink">Heart Rate Monitor</li>
+                <li id="stressLevelTrackerLink">Stress Level Tracker</li>
+                <li id="runningLink">Running Tracker</li>
+                <li id="CustomerLink">CustomerSupport</li>
+            </ul>
+        </aside>
+        
+        <!--carousel-->
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <!-- Images for the carousel -->
+                <img src="flu.jpg" alt="Image 1" class="carousel-image">
+                <img src="cough.jfif" alt="Image 2" class="carousel-image">
+                <img src="monkeypox.jfif" alt="Image 3" class="carousel-image">
+                <img src="doctor.webp" alt="Image 4" class="carousel-image">
+                <img src="heartbeat.gif" alt="Image 5" class="carousel-image">
+            </div>
+            
+            <div class="text-overlay">FLU</div>
+    
+            <!-- Buttons for sliding -->
+            <button class="prev-btn">n</button>
+            <button class="next-btn">o</button>
+        </div>
+
+
+        <div class="toggle-container">
+            <i id="dark-mode-toggle" class="fas fa-moon"></i>
+        </div>
+
+        <div id="AboutUs" class="tracker-content">
+                <h2>ABOUT US</h2>
+                <h3>We are the StreamLiner Corp.</h3>
+                <br>
+                <p>FOUNDER CEO: Kenji Talosig
+                    <br>
+                    <br>CTO: Khyn Huzhir Ayon
+                    <br>
+                    <br>CFO: Quinto Athani 
+                    <br>
+                    <br>COO: Eziekel Guarde
+                    <br>
+                    <br>Market Manager: John carlo Rojas
+                    <br>
+                    <br>Product Manager:Ken
+                    <br>
+                    <br>Software Manager: Jeremy
+                    <br>
+                    <br>HR Manager: AJ
+                    <br>
+                    <br>IT Manager: Sean
+                    <br>
+                    <br>C.S Manager: Brent
+                    <br>
+                    <br>Sales Manager: Wesleigh
+                    <br>
+                    <br>Operation Manager: Jancel
+                </p>
+                <br>
+                <p>
+                    We Develop this Website for many people to Track their Health, Heart Rate, Routine, Stress level
+                    for them to know if they're in high risk and when to consult to professionals
+                    <p>We give a helpful advices for the people that have sick and also how to avoid them.
+                    We develop this site also for mobile and specially for teachers to track their Students Physical activity record like how was their heart rate
+                    and how many they jumped.
+                    This can provide accurate record for their students and this will be available soon for student's 
+                    in order to know their record or BMI and to track also their Stress level like teachers 
+                    This websites help many people to store their data and load it after they logged in 
+                    Unlike other website it can;t store data like heart rate or everyday routine
+                    and that's make this site unique and not like smartwatch that can't store data also and no Login methods
+                    Another one that this website makes more enganging we provide a mini game leaderboard which is reward task 
+                    for them to motivate and  inspire to do and track their activities also in school
+                    that makes our website more unique.
+                    </p>
+                    <p>We develop this to help STI Teachers and Students about their P.E record and make their life more healthy and easier </p>
+                </p>
+            </div>
+
+            <div id="CustomerSupport" class="tracker-content">
+                <h2>Need Help?</h2>
+                <form>
+                        <div class="Chat">
+                        <label for="problem"><h4>What type of problem have you encountered?: We will soon fixed that thanks!</h4></label>
+                        <input type="text" id="problem" required placeholder="enter problem">
+                        <input type="text" id="feedback" required placeholder="enter feedback">
+                        <h5>PROVIDE A SCREENSHOT:</h5>
+                        <input type="file" id="file" required >
+                        <h5>WHEN THIS HAPPENED?</h5>
+                        <input type="date" required >
+                        <br>
+                        <button class="customerbtn"><h5>Submit</h5></button>
+                        </div>                
+                    </form>
+            </div>
+
+
+        <!-- Health Advice Section -->
+        <div id="healthAdvice" class="tracker-content active">
+            <div class="advice-item">
+                <h2>Flu</h2>
+                <p>Stay hydrated and rest. Consider taking over-the-counter medications.</p>
+            </div>
+            <div class="advice-item">
+                <h2>Cough</h2>
+                <p>Drink warm fluids and use cough drops to soothe your throat.</p>
+            </div>
+            <div class="advice-item">
+                <h2>Monkeypox</h2>
+                <p>Seek medical advice and avoid close contact with others.</p>
+            </div>
+            <div class="advice-item">
+                <h2>Stay Hydrated</h2>
+                <p>Don't forget to drink water every 30 minutes.</p>
+            </div>
+        </div>
+        
+
+        <div id="RunningTracker" class="tracker-content">
+            <!-- Content for Running Tracker -->
+        </div>        
+            <h2>Running Tracker</h2>
+            <canvas id="runningTrackerChart"></canvas>
+            <input type="number" id="runningDistanceInput" placeholder="Enter Distance (km)">
+            <button id="logRunningDistanceBtn">Log Distance</button>
+        </div>
+
+        <div id="routineTracker" class="tracker-content">
+            <h2>Routine Tracker</h2>
+            <div class="routine-progress">
+                <div class="routine-item">
+                    <h3>Exercise</h3>
+                    <canvas id="exerciseProgress"></canvas>
+                    <p>30 minutes exercise goal</p>
+                </div>
+                <div class="routine-item">
+                    <h3>Healthy Meal</h3>
+                    <canvas id="mealProgress"></canvas>
+                    <p>Eat 3 healthy meals</p>
+                </div>
+            </div>
+            <div class="streak-tracker">
+                <h3>Streak: <span id="routineStreak">5 Days =%</span></h3>
+            </div>
+        </div>
+
+
+        <div id="healthTracker" class="tracker-content">
+            <h2>Health Tracker</h2>
+            <div class="health-metrics">
+                <div class="tracker-item">
+                    <h3>Steps</h3>
+                    <canvas id="stepsProgress"></canvas>
+                    <p>Goal: 10,000 steps</p>
+                </div>
+                <div class="tracker-item">
+                    <h3>Water Intake</h3>
+                    <canvas id="waterIntakeProgress"></canvas>
+                    <p>Goal: 8 cups</p>
+                </div>
+            </div>
+        </div>
+
+  
+        <div id="heartRateMonitor" class="tracker-content">
+            <h2>Heart Rate Monitor</h2>
+            <canvas id="heartRateChart"></canvas>
+            <input type="number" id="heartRateInput" placeholder="Enter heart rate" />
+            <button id="logHeartRateBtn" class="modern-btn">Log Heart Rate</button>
+        </div>
+
+   
+        <div id="stressLevelTracker" class="tracker-content">
+            <h2>Stress Level Tracker</h2>
+            <input type="number" id="stressLevelInput" min="0" max="10" placeholder="Rate your stress level (0-10)" />
+            <button id="logStressLevelBtn" class="modern-btn">Log Stress Level</button>
+            <canvas id="stressLevelChart"></canvas>
+        </div>
+
+
+    </main>
+
+   
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="loginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p id="loginMessage" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="registerModal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <input type="text" id="registerName" placeholder="Name" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- account -->
+    <div id="accountSettingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-modal="accountSettingsModal">&times;</span>
+            <h2>Account Settings</h2>
+            <form id="accountSettingsForm">
+                <input type="text" id="settingsName" placeholder="Name" required>
+                <input type="email" id="settingsEmail" placeholder="Email" required>
+                <input type="password" id="settingsPassword" placeholder="New Password">
+                <button type="submit">Save</button>
+                <button id="logoutBtn" type="button">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@healthwebsite.com">streamlineraid@gmail.com</a></p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61566171836886"><img class="fb" src="facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/streamlineraid/"><img class="ig" src="instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+            <div>
+                <p>&copy; <span id="current-year"></span> Streamliner Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
