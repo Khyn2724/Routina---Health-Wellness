@@ -826,11 +826,7 @@ h3 {
    width: 80px;
    height: 40px;
 }
-#runningTrackerChart {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-}
+
 
 .tracker-content.active {
     display: block;
@@ -847,6 +843,7 @@ h3 {
 footer {
     transition: margin-left 0.3s;
 }
+
 
 
 
