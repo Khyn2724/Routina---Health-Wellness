@@ -63,13 +63,9 @@ document.getElementById("routineTrackerLink").addEventListener("click", function
 document.getElementById("healthTrackerLink").addEventListener("click", function() {
     activateSection('healthTracker');
 });
-document.getElementById("heartRateMonitorLink").addEventListener("click", function() {
-    activateSection('heartRateMonitor');
-});
 document.getElementById("stressLevelTrackerLink").addEventListener("click", function() {
     activateSection('stressLevelTracker');
 });
-
 document.getElementById("CustomerLink").addEventListener("click", function() {
     activateSection('CustomerSupport');
 });
@@ -140,54 +136,6 @@ new Chart(waterIntakeProgressCtx, {
     }
 });
 
-// Heart Rate Chart
-const heartRateChartCtx = document.getElementById('heartRateChart').getContext('2d');
-const heartRateChart = new Chart(heartRateChartCtx, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Heart Rate',
-            data: [],
-            borderColor: 'red', // Line color
-            fill: false
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white' // Change label color of the chart here
-                }
-            }
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: 'white' // Change color of x-axis labels here
-                }
-            },
-            y: {
-                ticks: {
-                    color: 'white' // Change color of y-axis labels here
-                }
-            }
-        }
-    }
-});
-
-document.getElementById('logHeartRateBtn').addEventListener('click', function() {
-    const heartRate = document.getElementById('heartRateInput').value;
-    if (heartRate) {
-        heartRateChart.data.labels.push(new Date().toLocaleTimeString());
-        heartRateChart.data.datasets[0].data.push(parseInt(heartRate));
-        heartRateChart.update();
-        document.getElementById('heartRateInput').value = '';
-    } else {
-        alert("Please enter a heart rate.");
-    }
-});
 
 // Stress Level Tracker Chart
 const stressLevelChartCtx = document.getElementById('stressLevelChart').getContext('2d');
@@ -459,61 +407,13 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     }
 });
 
-// Running Tracker Chart
-const runningTrackerChartCtx = document.getElementById('runningTrackerChart').getContext('2d');
-const runningTrackerChart = new Chart(runningTrackerChartCtx, {
-    type: 'line',
-    data: {
-        labels: [],  // These will hold timestamps
-        datasets: [{
-            label: 'Running Distance (km)',
-            data: [],  // Running distance will be added here
-            borderColor: '#06af00',  // Line color
-            fill: false
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white'  // Change the label color
-                }
-            }
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: 'white'  // Change the X-axis label color
-                }
-            },
-            y: {
-                ticks: {
-                    color: 'white'  // Change the Y-axis label color
-                }
-            }
-        }
-    }
-});
 
-// Log Running Distance
-document.getElementById('logRunningDistanceBtn').addEventListener('click', function() {
-    const runningDistance = document.getElementById('runningDistanceInput').value;
-    if (runningDistance) {
-        runningTrackerChart.data.labels.push(new Date().toLocaleTimeString());
-        runningTrackerChart.data.datasets[0].data.push(parseFloat(runningDistance));
-        runningTrackerChart.update();
-        document.getElementById('runningDistanceInput').value = '';  // Clear the input
-    } else {
-        alert("Please enter a running distance.");
-    }
-});
+
+
 
 document.getElementById("runningLink").addEventListener("click", function() {
     activateSection('RunningTracker'); // Ensure this matches the actual section ID
 });
-
-
 
 
 
